@@ -410,14 +410,14 @@ var HlsQualitySelectorPlugin = function () {
     var qualityList = this.player.tech_.sourceHandler_.hls.levels;
 	
 	if(height === 'auto') {
-		jawplayer.tech_.sourceHandler_.hls.currentLevel = -1;
+		if(jawplayer.tech_.sourceHandler_.hls.currentLevel != -1) jawplayer.tech_.sourceHandler_.hls.currentLevel = -1;
 	}
 	
     for (var i = 0; i < qualityList.length; ++i) {
       var quality = qualityList[i];
 
       if(quality.height === height) {
-	      jawplayer.tech_.sourceHandler_.hls.currentLevel = i;
+	      if(jawplayer.tech_.sourceHandler_.hls.currentLevel != i) jawplayer.tech_.sourceHandler_.hls.currentLevel = i;
       }
     }
     
